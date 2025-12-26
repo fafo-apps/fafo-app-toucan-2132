@@ -42,6 +42,9 @@ export default async function ProductPage({ params }: { params: { slug: string }
             </label>
           ) : null}
           <input type="hidden" name="slug" value={product.slug} />
+          <input type="hidden" name="name" value={product.name} />
+          <input type="hidden" name="price_cents" value={product.price_cents} />
+          <input type="hidden" name="product_id" value={product.id} />
           <button className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-white hover:bg-zinc-800">Add to cart</button>
         </form>
         <Link href="/" className="text-sm underline">Continue shopping</Link>

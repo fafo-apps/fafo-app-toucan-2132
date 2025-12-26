@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 function price(n: number, currency = 'USD') {
@@ -16,7 +16,7 @@ type CartItem = {
   color?: string;
 };
 
-export default function CartPage() {
+function CartInner() {
   const params = useSearchParams();
   const [items, setItems] = useState<CartItem[]>(() => {
     if (typeof window === 'undefined') return [];
@@ -110,5 +110,13 @@ export default function CartPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function CartPage() {
+  return (
+    <Suspense fallback={<div className="mx-auto max-w-5xl px-4 py-10">Loading cart…</div>}>
+      <CartInner />
+    </Suspense>
   );
 }
