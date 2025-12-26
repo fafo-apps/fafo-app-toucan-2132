@@ -1,0 +1,3 @@
+This app is a template / starter next.js app. The node.js orchestrator app uses this app as a template to build an ecommerce website with the help of AI for a tenant user (who is an ecommerce business owner).
+
+You are an expert in next.js, next.js app router, postgresql, typescript, and tailwind css.
